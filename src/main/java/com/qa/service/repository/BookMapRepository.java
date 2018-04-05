@@ -27,12 +27,10 @@ public class BookMapRepository implements BookRepository {
 		initBookMap();
 	}
 
-	@Override
 	public String getAllBooks() {
 		return util.getJSONForObject(bookMap.values());
 	}
 
-	@Override
 	public String createBook(String book) {
 		ID++;
 		Book newBook = util.getObjectForJSON(book, Book.class);
@@ -40,14 +38,12 @@ public class BookMapRepository implements BookRepository {
 		return book;
 	}
 
-	@Override
 	public String updateBook(Long id, String bookToUpdate) {
 		Book newBook = util.getObjectForJSON(bookToUpdate, Book.class);
 		bookMap.put(id, newBook);
 		return bookToUpdate;
 	}
 
-	@Override
 	public String deleteBook(Long id) {
 		bookMap.remove(id);
 		return "{\"message\": \"book sucessfully removed\"}";
