@@ -30,6 +30,7 @@ public class BookDBRepository implements BookRepository{
 	@Inject
 	private JSONUtil util;
 	
+	@Override
 	public String getAllBooks() {
 		LOGGER.info("In BookDBRepository getAllBooks ");
 		Query query = manager.createQuery("SELECT a FROM Book a");
@@ -37,6 +38,7 @@ public class BookDBRepository implements BookRepository{
 		return util.getJSONForObject(books);
 	}
 
+	@Override
 	@Transactional(REQUIRED)
 	public String createBook(String book) {
 		LOGGER.info("In BookDBRepository createBook ");
@@ -45,6 +47,7 @@ public class BookDBRepository implements BookRepository{
 		return "{\"message\": \"book has been sucessfully added\"}";
 	}
 
+	@Override
 	@Transactional(REQUIRED)
 	public String updateBook(Long id, String bookToUpdate) {
 		LOGGER.info("In BookDBRepository updateBook ");
@@ -57,6 +60,7 @@ public class BookDBRepository implements BookRepository{
 		return "{\"message\": \"book failed to update\"}";
 	}
 
+	@Override
 	@Transactional(REQUIRED)
 	public String deleteBook(Long id) {
 		LOGGER.info("In BookDBRepository deleteBook ");
