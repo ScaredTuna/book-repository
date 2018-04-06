@@ -54,7 +54,7 @@ public class BookMapRepository implements BookRepository {
 	}
 
 	private void initBookMap() {
-		Book book = new Book("Hello World", "127654562453", "Coders", "Educational");
+		Book book = new Book("Hello World", "127654562453", "Educational");
 		bookMap.put(1L, book);
 	}
 
